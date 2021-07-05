@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "tags": [
+    {
+      "name": "lfr-textbox",
+      "description": "An empty component",
+      "properties": [
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": [
+      ]
+    }
+  ]
+}

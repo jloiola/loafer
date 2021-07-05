@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="demo"></div>
+
+  <form id="asd" name="wtf" onsubmit="test(event)">
+    <lfr-textbox label="test" name="testfield" required value="init">
+    </lfr-textbox>
+    <lfr-textbox label="test2" name="testfield2" required>
+    </lfr-textbox>
+
+    <button type="submit">
+        Test
+    </button>
+  </form>
+
+  <div id="result"></div>
+
+
+  <script>
+    function test(e) {
+      e.preventDefault();
+      if(event.target.checkValidity()) {
+        document.getElementById("result").innerHTML = new URLSearchParams(new FormData(e.target)).toString();
+      }
+      return false;
+    }
+  </script>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../textbox.js';
+
+    render(
+      html`
+        <lfr-textbox label="test">
+        </lfr-textbox>
+        <lfr-textbox label="test" required>
+        </lfr-textbox>
+        <lfr-textbox label="test" required value="init">
+        </lfr-textbox>
+        <form onsubmit="return test(event)">
+          <lfr-textbox label="test">
+          </lfr-textbox>
+          <lfr-textbox label="test" required>
+          </lfr-textbox>
+          <lfr-textbox label="test" required value="init">
+          </lfr-textbox>
+          <button type="submit">
+            Test
+          </button>
+        </form>
+      `,
+      document.querySelector('#demo')
+    );
+
+  </script>
+</body>
+</html>

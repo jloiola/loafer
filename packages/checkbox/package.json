@@ -1,0 +1,50 @@
+{
+  "name": "checkbox",
+  "version": "0.0.1",
+  "description": "Webcomponent checkbox following open-wc recommendations",
+  "author": "checkbox",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "start": "web-dev-server",
+    "lint": "eslint --ext .js,.html . --ignore-path .gitignore && prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format": "eslint --ext .js,.html . --fix --ignore-path .gitignore && prettier \"**/*.js\" --write --ignore-path .gitignore",
+    "test": "web-test-runner --coverage",
+    "test:watch": "web-test-runner --watch"
+  },
+  "dependencies": {
+    "lit": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "@open-wc/eslint-config": "^4.3.0",
+    "@open-wc/testing": "^2.5.33",
+    "@web/dev-server": "^0.1.18",
+    "@web/test-runner": "^0.12.20",
+    "@web/test-runner-playwright": "^0.8.6",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^7.2.0",
+    "lint-staged": "^10.5.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "pre-commit": [
+    "test"
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
